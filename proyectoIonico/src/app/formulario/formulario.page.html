@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-form">
+    <ion-label>Id libro</ion-label>
+    <ion-input type="number" fill="outline" class="custom" [(ngModel)]="id_libro"></ion-input>
+    <ion-label>Titulo</ion-label>
+    <ion-input type="text" fill="outline" class="custom" [(ngModel)]="title"></ion-input>
+    <ion-label>Autor</ion-label>
+    <ion-input type="text" fill="outline" class="custom" [(ngModel)]="author"></ion-input>
+    <ion-label>Tipo</ion-label>
+    <ion-input type="text" fill="outline" class="custom" [(ngModel)]="type"></ion-input>
+    <ion-label>Precio</ion-label>
+    <ion-input type="number" fill="outline" class="custom" [(ngModel)]="price"></ion-input>
+    <ion-label>Url portada</ion-label>
+    <ion-input type="text" fill="outline" class="custom" [(ngModel)]="photo"></ion-input>
+  </div>
+  <div class="container-buttons">
+    <ion-button color="success" [disabled]="id_libro"
+      (click)="title && author && type && price && photo? addBook(): alert()">Añadir</ion-button>
+    <ion-button color="warning" [disabled]="!id_libro" (click)="id_libro? updateBook(): null">Modificar</ion-button>
+    <ion-button color="danger" [disabled]="!id_libro" (click)="id_libro? deleteBook(id_libro): null">Borrar</ion-button>
+    <ion-button routerLink="/home">Volver</ion-button>
+  </div>
+</ion-content>

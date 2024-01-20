@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Vista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-form">
+    <ion-label>Id libro</ion-label>
+    <ion-input type="number" fill="outline" class="custom" #inputLibro></ion-input>
+  </div>
+  <div class="container-buttons">
+    <ion-button (click)="inputLibro.value? getBooks(+inputLibro.value): getBooks(0)">Mostrar</ion-button>
+    <ion-button routerLink="/home">Volver</ion-button>
+  </div>
+  <div class="container-cards">
+    <app-book-card [libroPadre]="libro" *ngFor="let libro of books"></app-book-card>
+  </div>
+</ion-content>
