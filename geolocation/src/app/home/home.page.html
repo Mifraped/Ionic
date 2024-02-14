@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Geolocation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div class="geolocation" *ngIf="latitud && longitud">
+      <h1>Geolocalización</h1>
+      <p>Latitud: {{latitud}}</p>
+      <p>Longitud: {{longitud}}</p>
+    </div>
+    <ion-button (click)="printCurrentPosition()">Geolocalizar</ion-button>
+    <div class="map">
+      <h3>{{address}}</h3>
+      <capacitor-google-map #map></capacitor-google-map>
+    </div>
+  </div>
+</ion-content>
